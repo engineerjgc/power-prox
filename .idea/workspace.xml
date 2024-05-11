@@ -9,7 +9,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Add IDE file requirements for CLion" />
+    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Add IDE file requirements for CLion">
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/asyncota/asyncota.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/powerprox/eaw_config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/powerprox/powerprox.ino" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,11 +61,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw" />
+      <recent name="$PROJECT_DIR$/firmware/esp8266" />
+      <recent name="$PROJECT_DIR$/firmware/esp8266/src" />
       <recent name="$PROJECT_DIR$/firmware/etherten/src/original/tests/serial_test" />
       <recent name="$PROJECT_DIR$/firmware/etherten/src/original/tests/mthread_test" />
-      <recent name="$PROJECT_DIR$/firmware/etherten/src/original/tests" />
-      <recent name="$PROJECT_DIR$/firmware/etherten/src/original/v2" />
-      <recent name="$PROJECT_DIR$/firmware/etherten/src/original/v1" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -82,6 +89,7 @@
       <workItem from="1715138295594" duration="8462000" />
       <workItem from="1715405305253" duration="68000" />
       <workItem from="1715405379322" duration="70000" />
+      <workItem from="1715405456348" duration="3987000" />
     </task>
     <task id="LOCAL-00001" summary="Import old version of the code, and sort out the directory structure.">
       <option name="closed" value="true" />
@@ -123,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715404989462</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add IDE file requirements for CLion">
+      <option name="closed" value="true" />
+      <created>1715405482773</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715405482773</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

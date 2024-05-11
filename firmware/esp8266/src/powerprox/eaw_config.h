@@ -87,7 +87,7 @@
 /////////////////////////////////////////////
 
 // Permit reset hardware if no WiFi to permit user another chance to access Config Portal.
-#define RESET_IF_NO_WIFI              true
+#define RESET_IF_NO_WIFI              false
 
 /////////////////////////////////////////////
 

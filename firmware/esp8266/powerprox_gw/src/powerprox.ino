@@ -12,10 +12,10 @@
 // Include our requirements here
 #include "eaw_config.h"
 #include <ESPAsync_WiFiManager_Lite.h>
-#include <ESP8266WiFi.h>
-#include <ESPAsyncTCP.h>
+//#include <ESP8266WiFi.h>
+//#include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
-#include <ElegantOTA.h>
+//#include <ElegantOTA.h>
 #include <ESP8266mDNS.h>
 
 

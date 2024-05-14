@@ -9,13 +9,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Add IDE file requirements for CLion">
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" afterDir="false" />
+    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Get PlatformIO working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/asyncota/asyncota.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/powerprox/eaw_config.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firmware/esp8266/src/powerprox/powerprox.ino" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +84,7 @@
       <workItem from="1715138295594" duration="8462000" />
       <workItem from="1715405305253" duration="68000" />
       <workItem from="1715405379322" duration="70000" />
-      <workItem from="1715405456348" duration="3987000" />
+      <workItem from="1715405456348" duration="8756000" />
     </task>
     <task id="LOCAL-00001" summary="Import old version of the code, and sort out the directory structure.">
       <option name="closed" value="true" />
@@ -139,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715405482773</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Get PlatformIO working">
+      <option name="closed" value="true" />
+      <created>1715455411818</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715455411818</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +196,7 @@
     <MESSAGE value="Get initial code running with V2 of the AsyncElegantOTA library." />
     <MESSAGE value="PowerProx ESP8266 running on Arduino with ElegantOTA V3 and Async_WiFiManager." />
     <MESSAGE value="Add IDE file requirements for CLion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add IDE file requirements for CLion" />
+    <MESSAGE value="Get PlatformIO working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get PlatformIO working" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 /****************************************************************************************************************************
-  powerprox.ino
+  powerprox.cpp
   ESP8266 WiFi Bridge for Power Prox main CPU
   Provides a bridge to WiFi for the main Freetronics EtherTen CPU, as well as providing some higher-level functions that could
   not fit on the AVR processor
@@ -10,18 +10,19 @@
   *****************************************************************************************************************************/
 
 // Include our requirements here
+#include <Arduino.h>
 #include "eaw_config.h"
-#include <ESPAsync_WiFiManager_Lite.h>
-//#include <ESP8266WiFi.h>
-//#include <ESPAsyncTCP.h>
+//#include <ESPAsync_WiFiManager_Lite.h>
+#include <ESP8266WiFi.h>
+#include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
-//#include <ElegantOTA.h>
+#include <ElegantOTA.h>
 #include <ESP8266mDNS.h>
 
 
 bool LOAD_DEFAULT_CONFIG_DATA = false;
-ESP_WM_LITE_Configuration defaultConfig;
-ESPAsync_WiFiManager_Lite* ESPAsync_WiFiManager;
+//ESP_WM_LITE_Configuration defaultConfig;
+//ESPAsync_WiFiManager_Lite* ESPAsync_WiFiManager;
 AsyncWebServer webservices(80);
 unsigned long ota_progress_millis = 0;
 
@@ -34,10 +35,11 @@ void heartBeatPrint()
     Serial.print("H");        // H means connected to WiFi
   else
   {
-    if (ESPAsync_WiFiManager->isConfigMode())
-      Serial.print("C");        // C means in Config Mode
-    else
-      Serial.print("F");        // F means not connected to WiFi
+      Serial.print("-");
+//    if (ESPAsync_WiFiManager->isConfigMode())
+//      Serial.print("C");        // C means in Config Mode
+//    else
+//      Serial.print("F");        // F means not connected to WiFi
   }
 
   if (num == 80)
@@ -103,15 +105,15 @@ void setup()
   Serial.println(ESP_ASYNC_WIFI_MANAGER_LITE_VERSION);
   Serial.println(ESP_MULTI_RESET_DETECTOR_VERSION);
 
-  ESPAsync_WiFiManager = new ESPAsync_WiFiManager_Lite();
-  
-  // Set customized AP SSID and PWD
-  ESPAsync_WiFiManager->setConfigPortal(AP_SSID, AP_PWD);
-  ESPAsync_WiFiManager->setConfigPortalChannel(0);
-  ESPAsync_WiFiManager->setCustomsStyle(PSTR("<style>div,input{padding:5px;font-size:1em;}input{width:95%;}body{text-align: center;}button{background-color:blue;color:white;line-height:2.4rem;font-size:1.2rem;width:100%;}fieldset{border-radius:0.3rem;margin:0px;}</style>"));
-  ESPAsync_WiFiManager->setCustomsHeadElement(PSTR("<style>html{filter: invert(10%);}</style>"));
-  ESPAsync_WiFiManager->setCORSHeader(PSTR("Your Access-Control-Allow-Origin"));
-  ESPAsync_WiFiManager->begin(HOST_NAME);
+//  ESPAsync_WiFiManager = new ESPAsync_WiFiManager_Lite();
+//
+//  // Set customized AP SSID and PWD
+//  ESPAsync_WiFiManager->setConfigPortal(AP_SSID, AP_PWD);
+//  ESPAsync_WiFiManager->setConfigPortalChannel(0);
+//  ESPAsync_WiFiManager->setCustomsStyle(PSTR("<style>div,input{padding:5px;font-size:1em;}input{width:95%;}body{text-align: center;}button{background-color:blue;color:white;line-height:2.4rem;font-size:1.2rem;width:100%;}fieldset{border-radius:0.3rem;margin:0px;}</style>"));
+//  ESPAsync_WiFiManager->setCustomsHeadElement(PSTR("<style>html{filter: invert(10%);}</style>"));
+//  ESPAsync_WiFiManager->setCORSHeader(PSTR("Your Access-Control-Allow-Origin"));
+//  ESPAsync_WiFiManager->begin(HOST_NAME);
 
   // Create a callback for the main page here....
   webservices.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
@@ -169,7 +171,8 @@ void loop()
     #endif
     ElegantOTA.begin(&webservices);
     webservices.begin();
-    MDNS.begin(ESPAsync_WiFiManager->getBoardName());
+//    MDNS.begin(ESPAsync_WiFiManager->getBoardName());
+    MDNS.begin("Board Name here");
     MDNS.addService("http", "tcp", 80);
     nw_events = CONNECTED;
   }
@@ -188,7 +191,7 @@ void loop()
     ElegantOTA.loop();
     MDNS.update();
   }
-  ESPAsync_WiFiManager->run();
+  //ESPAsync_WiFiManager->run();
   check_status();
 
 }

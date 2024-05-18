@@ -9,9 +9,33 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Store current version">
+    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Trying to get PIO to compile">
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/Client.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/Server.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/SyncClient/SyncClient.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/library.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/DebugPrintMacros.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/async_config.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/gen_server_cert.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.cer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.ino" beforeDir="false" afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="114686fc615850e57d7d16395c2747af0edd3450" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,26 +61,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jamescooper/Documents/git/github.com/engineerjgc/power-prox&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/Users/jamescooper/Documents/git/github.com/engineerjgc/power-prox/firmware/esp8266/powerprox_gw/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw" />
       <recent name="$PROJECT_DIR$" />
@@ -87,7 +114,8 @@
       <workItem from="1715405305253" duration="68000" />
       <workItem from="1715405379322" duration="70000" />
       <workItem from="1715405456348" duration="10141000" />
-      <workItem from="1715715220797" duration="10531000" />
+      <workItem from="1715715220797" duration="12697000" />
+      <workItem from="1715991378792" duration="4241000" />
     </task>
     <task id="LOCAL-00001" summary="Import old version of the code, and sort out the directory structure.">
       <option name="closed" value="true" />
@@ -153,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715677290609</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Trying to get PIO to compile">
+      <option name="closed" value="true" />
+      <created>1715989236328</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715989236328</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +246,7 @@
     <MESSAGE value="Get PlatformIO working" />
     <MESSAGE value="Update 1 with additional files missed" />
     <MESSAGE value="Store current version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Store current version" />
+    <MESSAGE value="Trying to get PIO to compile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to get PIO to compile" />
   </component>
 </project>

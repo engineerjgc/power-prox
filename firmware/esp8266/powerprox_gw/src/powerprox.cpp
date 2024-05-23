@@ -5,193 +5,105 @@
   not fit on the AVR processor
 
   Dependancies:
-  ESPAsync_WiFiManager_Lite (https://github.com/khoih-prog/ESPAsync_WiFiManager_Lite)
-  ElegantOTA (https://github.com/ayushsharma82/ElegantOTA) [Using Async Mode]
+  ESPmanager (https://github.com/sticilface/ESPmanager)
   *****************************************************************************************************************************/
 
-// Include our requirements here
-#include <Arduino.h>
-#include "eaw_config.h"
-#include <ESPAsync_WiFiManager_Lite.h>  // GOOD
-#include <ESP8266WiFi.h>  // @1.0
-#include <ESPAsyncTCP.h>  // GOOD - local lib
-#include <ESPAsyncWebServer.h>
-#include <ElegantOTA.h>  // GOOD
-#include <ESP8266mDNS.h>  // https://github.com/LaborEtArs/ESP8266mDNS@1.2
+#include <WiFiMan.h>
 
-
-bool LOAD_DEFAULT_CONFIG_DATA = false;
-ESP_WM_LITE_Configuration defaultConfig;
-ESPAsync_WiFiManager_Lite* ESPAsync_WiFiManager;
-AsyncWebServer webservices(80);
-unsigned long ota_progress_millis = 0;
-
-
-void heartBeatPrint()
-{
-  static int num = 1;
-
-  if (WiFi.status() == WL_CONNECTED)
-    Serial.print("H");        // H means connected to WiFi
-  else
-  {
-      Serial.print("-");
-    if (ESPAsync_WiFiManager->isConfigMode())
-      Serial.print("C");        // C means in Config Mode
-    else
-      Serial.print("F");        // F means not connected to WiFi
-  }
-
-  if (num == 80)
-  {
-    Serial.println();
-    num = 1;
-  }
-  else if (num++ % 10 == 0)
-  {
-    Serial.print(F(" "));
-  }
-}
-
-void check_status()
-{
-  static unsigned long checkstatus_timeout = 0;
-
-  // Print hearbeat every HEARTBEAT_INTERVAL (20) seconds.
-  if ((millis() > checkstatus_timeout) || (checkstatus_timeout == 0))
-  {
-    heartBeatPrint();
-    checkstatus_timeout = millis() + HEARTBEAT_INTERVAL;
-  }
-}
-
-
-void onOTAStart() {
-  // Log when OTA has started
-  Serial.println("OTA update started!");
-  // <Add your own code here>
-}
-
-void onOTAProgress(size_t current, size_t final) {
-  // Log every 1 second
-  if (millis() - ota_progress_millis > 1000) {
-    ota_progress_millis = millis();
-    Serial.printf("OTA Progress Current: %u bytes, Final: %u bytes\n", current, final);
-  }
-}
-
-void onOTAEnd(bool success) {
-  // Log when OTA has finished
-  if (success) {
-    Serial.println("OTA update finished successfully!");
-  } else {
-    Serial.println("There was an error during OTA update!");
-  }
-  // <Add your own code here>
-}
+Config conf;
+ESP8266WebServer httpServer(80);
+ESP8266OTA otaUpdater;
 
 void setup()
 {
-  // Debug console
-  Serial.begin(115200);
-  while (!Serial);
+    Serial.begin(115200);
+    delay(5000);
 
-  delay(200);
+    Serial.println("This is the start of the application");
 
-  Serial.print(F("\n\nStarting ESPAsync_WiFi using "));
-  Serial.print(FS_Name);
-  Serial.print(F(" on "));
-  Serial.println(ARDUINO_BOARD);
-  Serial.println(ESP_ASYNC_WIFI_MANAGER_LITE_VERSION);
-  Serial.println(ESP_MULTI_RESET_DETECTOR_VERSION);
+    //create default object without authentication.Authentication can be set with WiFiMan(bool authentication); or WiFiMan.setAuthentication(true) (read below)
+    WiFiMan wman = WiFiMan();
 
-  ESPAsync_WiFiManager = new ESPAsync_WiFiManager_Lite();
+    //clear all config (delete config.json)
+    wman.deleteConfig();
 
-  // Set customized AP SSID and PWD
-  ESPAsync_WiFiManager->setConfigPortal(AP_SSID, AP_PWD);
-  ESPAsync_WiFiManager->setConfigPortalChannel(0);
-  ESPAsync_WiFiManager->setCustomsStyle(PSTR("<style>div,input{padding:5px;font-size:1em;}input{width:95%;}body{text-align: center;}button{background-color:blue;color:white;line-height:2.4rem;font-size:1.2rem;width:100%;}fieldset{border-radius:0.3rem;margin:0px;}</style>"));
-  ESPAsync_WiFiManager->setCustomsHeadElement(PSTR("<style>html{filter: invert(10%);}</style>"));
-  ESPAsync_WiFiManager->setCORSHeader(PSTR("Your Access-Control-Allow-Origin"));
-  ESPAsync_WiFiManager->begin(HOST_NAME);
+    //enable webserver authentication.If the username and password are not set , ap will use default value "admin":"password"
+    wman.setAuthentication(true);
+    //set username to login (this CANNOT be change later).default is "admin"
+    wman.setMasterUsername("user");
+    //set password use in the first time login.This can be changed in config menu.Default is "password"
+    wman.setDefaultMasterPasswd("httpPassword");
 
-  // Create a callback for the main page here....
-  webservices.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-    request->send(200, "text/plain", "Hi! This is a sample response.  Go to /update to run over-the-air updates.");
-  });
-  // Route for root / web page
-//  webservices.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-//    if(!request->authenticate(http_username, http_password))
-//      return request->requestAuthentication();
-//    request->send_P(200, "text/html", index_html, processor);
-//  });
-//
-//  webservices.on("/logout", HTTP_GET, [](AsyncWebServerRequest *request){
-//    request->send(401);
-//  });
-//
-//  webservices.on("/logged-out", HTTP_GET, [](AsyncWebServerRequest *request){
-//    request->send_P(200, "text/html", logout_html, processor);
-//  });
-//
-//  // Send a GET request to <ESP_IP>/update?state=<inputMessage>
-//  webservices.on("/update", HTTP_GET, [] (AsyncWebServerRequest *request) {
-//    if(!request->authenticate(http_username, http_password))
-//      return request->requestAuthentication();
-//    String inputMessage;
-//    String inputParam;
-//    // GET input1 value on <ESP_IP>/update?state=<inputMessage>
-//    if (request->hasParam(PARAM_INPUT_1)) {
-//      inputMessage = request->getParam(PARAM_INPUT_1)->value();
-//      inputParam = PARAM_INPUT_1;
-//      digitalWrite(output, inputMessage.toInt());
-//    }
-//    else {
-//      inputMessage = "No message sent";
-//      inputParam = "none";
-//    }
-//    Serial.println(inputMessage);
-//    request->send(200, "text/plain", "OK");
-//  });
+    //force config mode .Device will skip auto connect and jump strait into softAP mode(config portal)
+    wman.forceApMode();
 
-  // Set up the OTA callback functions
-//  ElegantOTA.onStart(onOTAStart);
-//  ElegantOTA.onProgress(onOTAProgress);
-//  ElegantOTA.onEnd(onOTAEnd);
+    //Set auto-connect interrupt pin. Hold this pin in active state for more than 500ms will skip auto-connect process(only works when the device trying to connect to AP
+    wman.setConfigPin(0,LOW);
+
+    //Set simple led indicator. The led will stay on when the esp trying to connect to the network and blink when the esp in ap(config) mode.
+    wman.setIndicatorLedPin(13,LOW);
+
+    //set delay between connects attempts. The default value is 500ms. Lower this value might help the device connect to AP quicker, but too low will make the device unable to connect to the AP
+    //wman.setConnectDelay(300);
+
+    //Change WebUI of config portal with custom device info
+    wman.setWebUi("Page title","page banner","build : 0.01","Branch : master","device type : esp8266","page footer");
+    //Change WebUI of config portal,deviceInfo will be fill with chipID
+    //wman.setWebUi("Page title","page banner","build : 0.01","Branch : master","page footer");
+    //set text of the help page
+    wman.setHelpInfo("This is the help page");
+
+    //set ap ip/gateway/subnet . default is 192.168.1.1/192.168.1.1/255.255.255.0
+    wman.setApConfig(IPAddress(192, 168, 1, 1),IPAddress(192, 168, 1, 1),IPAddress(255, 255, 255, 0));
+    //set max connect attempt, default is 36
+    wman.setMaxConnectAttempt(50);
+    //set timeout of AP mode (min), server will turnoff after timeout.default is 15 mins
+    wman.setConfigTimeout(10);
+    //set default ap SSID .in ap mode, SSID will be <apName>+<chipID> .Default is esp8266-idxxxxxx
+    wman.setApName("DeviceNo");
+    //set softAP password , if password is blank, the will be set without password
+    wman.setApPasswd("apPassword");
+
+    Serial.println("WMAN Setup complete");
+
+    //config commands must be called before start
+    wman.start();
+
+    Serial.println("WMAN Running");
+
+    //wman.getConfig(&conf) will return false if connect failed or config portal timeout
+    if(wman.getConfig(&conf))
+    {
+        //display device status
+        Serial.println("Connected to AP");
+        Serial.print("SSID : ");
+        Serial.println(conf.wifiSsid);
+        Serial.print("Passwd : ");
+        Serial.println(conf.wifiPasswd);
+        Serial.print("MQTT server : ");
+        Serial.println(conf.mqttAddr);
+        Serial.print("MQTT password : ");
+        Serial.println(conf.mqttPasswd);
+        Serial.print("MQTT username : ");
+        Serial.println(conf.mqttUsername);
+        Serial.print("MQTT Id : ");
+        Serial.println(conf.mqttId);
+        Serial.print("Sub topic : ");
+        Serial.println(conf.mqttSub);
+        Serial.print("Pub topic : ");
+        Serial.println(conf.mqttPub);
+        Serial.print("MQTT port : ");
+        Serial.println(conf.mqttPort);
+        Serial.print("Master password : ");
+        Serial.println(conf.masterPasswd);
+        Serial.print("Device mDNS name : ");
+        Serial.println(conf.mdnsName);
+        Serial.print("IP : ");
+        Serial.println(conf.localIP);
+    }
 }
-
 
 void loop()
 {
-  static enum events {NONE, CONNECTED, DISCONNECTED} nw_events = NONE;
-  if ((WiFi.status() == WL_CONNECTED) && (nw_events != CONNECTED)) {
-    // Start AsyncElegantOTA
-    #ifdef ESP_WM_LITE_DEBUG_OUTPUT
-    Serial.println("Starting main webserver");
-    #endif
-//    ElegantOTA.begin(&webservices);
-    webservices.begin();
-    MDNS.begin(ESPAsync_WiFiManager->getBoardName());
-    MDNS.begin("Board Name here");
-    MDNS.addService("http", "tcp", 80);
-    nw_events = CONNECTED;
-  }
-  else if (WiFi.status() != WL_CONNECTED) {
-    if (nw_events == CONNECTED) {
-      // Do we need to do this?  Assume so, as otherwise it would clash with the config portal?
-      #ifdef ESP_WM_LITE_DEBUG_OUTPUT
-      Serial.println("Killing main webserver");
-      #endif
-      webservices.end();
-      MDNS.end();
-    }
-    nw_events = DISCONNECTED;
-  }
-  if (nw_events == CONNECTED) {
-//    ElegantOTA.loop();
-    MDNS.update();
-  }
-  ESPAsync_WiFiManager->run();
-  check_status();
-
+  //
 }

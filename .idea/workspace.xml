@@ -9,31 +9,31 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Trying to get PIO to compile">
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/Client.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/config.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/Server.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/config.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/SyncClient/SyncClient.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/library.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/DebugPrintMacros.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/async_config.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/gen_server_cert.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.cer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.key" afterDir="false" />
+    <list default="true" id="9dc2e799-d101-4293-ba8a-8073cbfe3eb0" name="Changes" comment="Last image using WiFiManager and ElegantOTA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/Client.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Client/config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/Server.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/ClientServer/Server/config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/examples/SyncClient/SyncClient.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/library.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/AsyncPrinter.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/DebugPrintMacros.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCP.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/ESPAsyncTCPbuffer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/SyncClient.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/async_config.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/src/tcp_axtls.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/gen_server_cert.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/ESPAsyncTCP/ssl/server.key" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/platformio.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/src/powerprox.cpp" afterDir="false" />
     </list>
@@ -85,11 +85,11 @@
       <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib/" />
+      <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/lib" />
+      <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw/data/espman" />
       <recent name="$PROJECT_DIR$/firmware/esp8266/powerprox_gw" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/firmware/esp8266" />
-      <recent name="$PROJECT_DIR$/firmware/esp8266/src" />
-      <recent name="$PROJECT_DIR$/firmware/etherten/src/original/tests/serial_test" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -115,7 +115,7 @@
       <workItem from="1715405379322" duration="70000" />
       <workItem from="1715405456348" duration="10141000" />
       <workItem from="1715715220797" duration="12697000" />
-      <workItem from="1715991378792" duration="4241000" />
+      <workItem from="1715991378792" duration="11259000" />
     </task>
     <task id="LOCAL-00001" summary="Import old version of the code, and sort out the directory structure.">
       <option name="closed" value="true" />
@@ -189,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715989236328</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Last image using WiFiManager and ElegantOTA">
+      <option name="closed" value="true" />
+      <created>1716001694505</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716001694505</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +255,7 @@
     <MESSAGE value="Update 1 with additional files missed" />
     <MESSAGE value="Store current version" />
     <MESSAGE value="Trying to get PIO to compile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to get PIO to compile" />
+    <MESSAGE value="Last image using WiFiManager and ElegantOTA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last image using WiFiManager and ElegantOTA" />
   </component>
 </project>
